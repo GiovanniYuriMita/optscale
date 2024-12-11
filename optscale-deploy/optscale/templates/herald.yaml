@@ -60,6 +60,8 @@ spec:
           value: {{ .Values.etcd.service.externalPort | quote }}
         - name: HERALD_SERVICE
           value: {{ $config.api.role }}
+        - name: URL_HOST
+          value: {{ $config.url_host }}
 {{ include "ready_probe" $config | indent 8 }}
 ---
 apiVersion: apps/v1
@@ -100,3 +102,5 @@ spec:
           value: {{ .Values.etcd.service.externalPort | quote }}
         - name: HERALD_SERVICE
           value: {{ $config.engine.role }}
+        - name: URL_HOST
+          value: {{ $config.url_host }}

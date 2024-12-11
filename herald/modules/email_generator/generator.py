@@ -50,7 +50,8 @@ def _generate_context(template_params, config_client):
     texts['control_panel_parameters'] = generate_control_panel_parameters(
         organization_info)
     texts['etcd'] = {}
-    texts['etcd']['control_panel_link'] = config_client.get('/public_ip').value
+    url_host = os.environ.get('URL_HOST', '').strip()
+    texts['etcd']['control_panel_link'] = url_host if url_host else config_client.get('/public_ip').value
     template = update_template(default_template, template_params)
     template['style'] = update_template_style(numbered_dict)
     for k, etcd_k in template.get('etcd', {}).items():

@@ -56,6 +56,10 @@ smtp:
   password:
   protocol:
 
+# URL Host used on email links. Defaults to public_ip
+herald:
+  url_host: ""
+
 # Slack application credentials
 slacker:
   slack_signing_secret:

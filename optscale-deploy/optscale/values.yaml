@@ -168,6 +168,8 @@ herald:
     type: ClusterIP
     externalPort: 80
     internalPort: 8906
+  # filled from overlay
+  url_host:
 
 elk:
   enabled: false
